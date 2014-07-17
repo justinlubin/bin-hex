@@ -1,0 +1,59 @@
+body {
+    background-color: #00CCFF;
+    font-family: sans-serif;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+#board, #opponent-board {
+    display: inline-block;
+    padding: 20px;
+    border-radius: 10px;
+    visibility: hidden;
+}
+
+#timer-wrapper {
+    font-size: 2em;
+}
+
+#board .card {
+    cursor: pointer;
+
+}
+
+#opponent-board {
+    background-color: #111111;
+}
+
+#opponent-board .card {
+    cursor: not-allowed;
+}
+
+.card {
+    display: inline-block;
+    border: 1px solid black;
+    width: 14vmin;
+    height: 7vmin;
+    margin: 1vmin;
+    line-height: 7vmin;
+    text-align: center;
+    background-color: #FFFFCC;
+    font-size: 2em;
+    border-radius: 5px;
+}
+.card.binary {
+    background-color: #FFFFCC;
+}
+.card.hexadecimal {
+    background-color: #FFFFFF;
+}
+.card.selected {
+    background-color: #88FF88;
+}
+.card.wrong {
+    background-color: #FF8888;
+}
