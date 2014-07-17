@@ -69,9 +69,10 @@
                         }
                     });
                     if(opponent !== "") {
-                        opponentBoard.innerHTML = dataSnapshot.val()[opponent]["board"];
-                        if(dataSnapshot.val()[opponent]["remainingPairs"] === 0) {
-                            lose();
+                        var opponentData = dataSnapshot.val()[opponent];
+                        opponentBoard.innerHTML = opponentData["board"];
+                        if(opponentData["remainingPairs"] === 0) {
+                            lose(opponentData["time"]);
                         }
                     }
                 }
@@ -202,15 +203,16 @@
         alert("You win!\nTime: " + formatHundredth(time) + "s");
     }
 
-    function lose() {
+    function lose(opponentTime) {
         clearInterval(timerInterval);
-        alert("You lose...\nOpponent's Time: " + formatHundredth(time) + "s");
+        alert("You lose...\nOpponent's Time: " + formatHundredth(opponentTime) + "s");
     }
 
     function sendUpdate() {
         myRef.set({
             "board": board.innerHTML, 
-            "remainingPairs": remainingPairs
+            "remainingPairs": remainingPairs,
+            "time": time
         });
     }
 })();
