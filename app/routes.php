@@ -11,14 +11,14 @@
 |
 */
 
-Route::get("/", function() {
-    return View::make("index");
+Route::get('/', function() {
+    return View::make('login');
 });
 
-Route::get("multiplayer", function() {
-    return View::make("multiplayer");
+Route::get('multiplayer', function() {
+    return View::make('multiplayer');
 });
 
-Route::get("singleplayer", function() {
-    return View::make("singleplayer");
+Route::get('singleplayer', function() {
+    return View::make('singleplayer');
 });
