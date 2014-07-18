@@ -3,7 +3,7 @@
 <html lang="en-US">
     <head>
         <meta charset="UTF-8" />
-        <title>Bin:Hex Single Player Game</title>
+        <title>Bin:Hex Multiplayer Game</title>
         <link rel="stylesheet" href="game.css" />
         <script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.17/firebase.js'></script>
         <script src="game.js"></script>
