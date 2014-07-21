@@ -5,18 +5,20 @@
 @stop
 
 @section('content')
-    <h1>Log In</h1>
-    {{ Form::open(['route' => 'users.postLogIn']) }}
-        <div>
-            {{ Form::label('username', 'Username: ') }}
-            {{ Form::text('username') }}
-            {{ $errors->first('username') }}
-        </div>
-        <div>
-            {{ Form::label('password', 'Password: ') }}
-            {{ Form::password('password') }}
-            {{ $errors->first('password') }}
-        </div>
-        {{ Form::submit('Log In') }}
-    {{ Form::close() }}
+    <div class="center">
+        <h1>Log In</h1>
+        {{ Form::open(['route' => 'users.postLogIn']) }}
+            <div>
+                {{ Form::label('username', 'Username') }}
+                {{ $errors->first('username', '<span class="error">:mesage</span>') }}
+                {{ Form::text('username') }}
+            </div>
+            <div>
+                {{ Form::label('password', 'Password') }}
+                {{ $errors->first('password', '<span class="error">:mesage</span>') }}
+                {{ Form::password('password') }}
+            </div>
+            {{ Form::submit('Log In') }}
+        {{ Form::close() }}
+    </div>
 @stop

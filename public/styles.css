@@ -8,6 +8,10 @@
     box-sizing: border-box;
 }
 
+.center {
+    text-align: center;
+}
+
 .vertical-center {
     display: table;
 }
@@ -24,66 +28,114 @@ html, body {
 body {
     background-color: #EEEEEE;
     color: #000000;
-    font-family: "Helvetica", "Arial", sans-serif;
-    padding: 20px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
 }
 
-#login {
-    width: 100%;
+#mainNav {
+    float: left;
+    height: 100%;
+    width: 200px;
+    padding: 15px;
+    box-shadow: -1px 0 3px 0 rgba(0, 0, 0, 0.5) inset;
 }
 
-    #login > div {
+    #mainNav h3 {
         text-align: center;
+        font-size: 2em;
+        margin-bottom: 10px;
     }
 
-    #login > div > * {
-        text-align: left;
+    #mainNav ul {
+        list-style-type: none;
     }
 
-    #login header {
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-        #login header h1 {
-            font-weight: 200;
-        }
-
-    #login .box {
-        display: inline-block;
-        vertical-align: top;
-        padding: 20px;
-        background-color: #FFFFFF;
-        box-shadow: 0px 0 4px 0 rgba(0, 0, 0, 0.5) inset;
-        width: 400px;
-    }
-
-        #login .box:nth-of-type(2) {
-            /*border-left: 1px solid #FFFFFF;*/
-        }
-
-        #login .box h2 {
-            font-weight: 200;
-            margin-bottom: 15px;
-            text-align: left;
-        }
-
-        #login .box label {
-            display: block;
-            font-weight: 200;
+        #mainNav ul li {
             
         }
 
-            #login .box label input {
+            #mainNav ul li a {
                 display: block;
-                margin-bottom: 20px;
-                width: 100%;
-                padding: 5px;
-                font-size: 1.2em;
+                background-color: #FFFFFF;
+                color: #000000;
+                font-size: 1.1em;
+                text-decoration: none;
+                margin-bottom: 10px;
+                padding: 20px;
+                border-left: 3px solid transparent;
+                border-radius: 2px;
+                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+                -webkit-transition: color 0.2s, border-left 0.2s;
+                -moz-transition: color 0.2s, border-left 0.2s;
+                -ms-transition: color 0.2s, border-left 0.2s;
+                -o-transition: color 0.2s, border-left 0.2s;
+                transition: color 0.2s, border-left 0.2s;
             }
 
-            #login .box input[type="submit"] {
-                width: 100%;
-                font-size: 2em;
-                display: block;
-            }
+                #mainNav ul li a:hover {
+                    color: #0099cc;
+                    border-left: 3px solid #0099cc;
+                }
+
+#content {
+    margin-left: 200px;
+    padding: 20px;
+}
+
+    #content h1 {
+        font-size: 3em;
+        margin-bottom: 10px;
+    }
+
+    #content form {
+        width: 500px;
+        display: inline-block;
+        text-align: left;
+        background-color: #FFFFFF;
+        color: #000000;
+        font-size: 1.1em;
+        text-decoration: none;
+        margin-bottom: 10px;
+        padding: 20px;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    #content form div {
+        margin-bottom: 15px;
+    }
+
+    #content form input[type="text"], #content form input[type="password"] {
+        display: block;
+        width: 100%;
+    }
+
+    #content form input[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 10px 15px;
+        background-color: transparent;
+        border: 1px solid #888;
+        cursor: pointer;
+
+        background: -webkit-linear-gradient(bottom, #EEEEEE 0%, #FFFFFF 100%);
+        background: -moz-linear-gradient(bottom, #EEEEEE 0%, #FFFFFF 100%);
+        background: -ms-linear-gradient(bottom, #EEEEEE 0%, #FFFFFF 100%);
+        background: -o-linear-gradient(bottom, #EEEEEE 0%, #FFFFFF 100%);
+        background: linear-gradient(bottom, #EEEEEE 0%, #FFFFFF 100%);
+    }
+
+    #content form input[type="submit"]:active {
+        outline: none;
+        background: -webkit-linear-gradient(top, #EEEEEE 0%, #FFFFFF 100%);
+        background: -moz-linear-gradient(top, #EEEEEE 0%, #FFFFFF 100%);
+        background: -ms-linear-gradient(top, #EEEEEE 0%, #FFFFFF 100%);
+        background: -o-linear-gradient(top, #EEEEEE 0%, #FFFFFF 100%);
+        background: linear-gradient(top, #EEEEEE 0%, #FFFFFF 100%);
+    }
+
+    #content form .error {
+        color: #CC0000;
+        font-style: italic;
+        font-size: 0.8em;
+        float:right;
+    }
