@@ -236,18 +236,18 @@
 
     function win() {
         clearInterval(timerInterval);
-        // alert("You win!\nTime: " + formatHundredth(time) + "s");
         post(POST_UPDATE, {
-            "win": "true",
+            "multiplayer" : isMultiplayer,
+            "win": true,
             "time": time
         });
     }
 
     function lose(opponentUsername, opponentTime) {
         clearInterval(timerInterval);
-        // alert("You lose...\n" + opponentUsername + "'s Time: " + formatHundredth(opponentTime) + "s");
         post(POST_UPDATE, {
-            "win": "false"
+            "multiplayer" : isMultiplayer,
+            "win": false
         });
     }
 

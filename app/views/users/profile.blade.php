@@ -20,7 +20,7 @@
             -->)
         @endif
     </h1>
-    <ul id="stats">
+    <ul id="profile-stats">
         <li>Email: {{ $user->email }}</li>
         @if($user->games != 0)
             <li>Games Played: {{ $user->games }}</li>

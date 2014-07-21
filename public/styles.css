@@ -13,7 +13,7 @@ html, body {
 }
 
 body {
-    background-color: #EEEEEE;
+    background-color: #55D7F7;
     color: #000000;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
@@ -26,6 +26,7 @@ body {
     width: 200px;
     padding: 15px;
     box-shadow: -1px 0 3px 0 rgba(0, 0, 0, 0.5) inset;
+    position: fixed;
 }
 
     #mainNav h3 {
@@ -62,16 +63,24 @@ body {
 
 #content {
     margin-left: 200px;
-    padding: 20px;
 }
 
     #content h1 {
         font-size: 3em;
         margin-bottom: 10px;
+    padding: 20px;
+/*box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);*/
+font-family: 'Lobster Two', cursive;
+    }
+
+    #content h2 {
+        font-size: 1.7em;
+        margin-bottom: 10px;
     }
 
     #content h3 {
         font-size: 1.5em;
+        margin-bottom: 10px;
     }
 
     #content form {
@@ -90,10 +99,6 @@ body {
 
         #content form div {
             margin-bottom: 15px;
-        }
-
-        #content form h3 {
-            margin-bottom: 10px;
         }
 
         #content form label {
@@ -171,11 +176,11 @@ body {
                 border-bottom: 3px solid #0099cc;
             }
 
-#stats {
+#profile-stats {
     list-style-type: none;
 }
 
-   #stats li {
+   #profile-stats li {
         display: block;
         width: 400px;
         background-color: #FFFFFF;
@@ -211,3 +216,49 @@ body {
         color: #0099cc;
         border-bottom: 3px solid #0099cc;
     }
+
+#leaderboard {
+    width: 500px;
+    margin: auto;
+}
+
+#leaderboard h2 {
+    text-align: left;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+#leaderboard table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 500px;
+    background-color: #FFFFFF;
+    color: #000000;
+    text-decoration: none;
+    margin: auto;
+    margin-bottom: 30px;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+    #leaderboard table tr + tr {
+        border-top: 1px solid #888888;
+    }
+
+        #leaderboard table tr td + td {
+            border-left: 1px solid #888888;
+            padding: 20px;
+        }
+
+        #leaderboard table tr td:nth-child(1) {
+            width: 20%;
+            background-color: #EEEEEE
+        }
+
+        #leaderboard table tr td:nth-child(2) {
+            width: 40%;
+        }
+
+        #leaderboard table tr td:nth-child(3) {
+            width: 40%;
+        }

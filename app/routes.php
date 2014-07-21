@@ -18,6 +18,14 @@ Route::get('/', [
 ]);
 
 // Users
+Route::get('users/all', [
+    'as' => 'users.all',
+    'uses' => 'UsersController@getAll'
+]);
+Route::get('users/profile/{user}', [
+    'as' => 'users.profile',
+    'uses' => 'UsersController@getProfile'
+]);
 Route::get('users/logIn', [
     'as' => 'users.getLogIn',
     'uses' => 'UsersController@getLogIn'
@@ -38,13 +46,9 @@ Route::get('users/logout', [
     'as' => 'users.getLogOut',
     'uses' => 'UsersController@getLogOut'
 ]);
-Route::get('users/all', [
-    'as' => 'users.all',
-    'uses' => 'UsersController@getAll'
-]);
-Route::get('users/profile/{user}', [
-    'as' => 'users.profile',
-    'uses' => 'UsersController@getProfile'
+Route::get('/users/leaderboard', [
+    'as' => 'users.leaderboard',
+    'uses' => 'UsersController@getLeaderboard'
 ]);
 
 // Game

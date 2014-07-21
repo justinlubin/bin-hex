@@ -15,20 +15,28 @@ class GameController extends BaseController {
     }
 
     public function postUpdate() {
-        Auth::user()->games += 1;
+        Auth::user()->total_games += 1;
 
-        $win = Input::get('win');
-        if($win == "true") {
-            $time = Input::get('time');
-            if(Auth::user()->best_time == 0 || $time < Auth::user()->best_time) {
-                Auth::user()->best_time = $time;
+        $is_multiplayer= Input::get('is_multiplayer');
+        if($is_multiplayer) {
+            Auth::user()->multiplayer_games += 1;
+            $win = Input::get('win');
+            if($win) {
+                Auth::user()->won += 1;
+            } else {
+                Auth::user()->lost += 1;
             }
-            Auth::user()->won += 1;
         } else {
-            Auth::user()->lost += 1;
+            Auth::user()->singleplayer_games += 1;
+        }
+
+        $time = Input::get('time');
+        if(Auth::user()->best_time == 0 || $time < Auth::user()->best_time) {
+            Auth::user()->best_time = $time;
         }
 
         Auth::user()->save();
         return Auth::user();
+        return View::make('game.lobby');
     }
 }
