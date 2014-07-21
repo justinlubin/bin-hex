@@ -11,14 +11,56 @@
 |
 */
 
-Route::get('/', function() {
-    return View::make('login');
-});
+// Start
+Route::get('/', [
+    'as' => 'start',
+    'uses' => 'HomeController@getStart'
+]);
 
-Route::get('multiplayer', function() {
-    return View::make('multiplayer');
-});
+// Users
+Route::get('users/logIn', [
+    'as' => 'users.getLogIn',
+    'uses' => 'UsersController@getLogIn'
+]);
+Route::get('users/signUp', [
+    'as' => 'users.getSignUp',
+    'uses' => 'UsersController@getSignUp'
+]);
+Route::post('users/logIn', [
+    'as' => 'users.postLogIn',
+    'uses' => 'UsersController@postLogIn'
+]);
+Route::post('users/signUp', [
+    'as' => 'users.postSignUp',
+    'uses' => 'UsersController@postSignUp'
+]);
+Route::get('users/logout', [
+    'as' => 'users.getLogOut',
+    'uses' => 'UsersController@getLogOut'
+]);
+Route::get('users/all', [
+    'as' => 'users.all',
+    'uses' => 'UsersController@getAll'
+]);
+Route::get('users/profile/{user}', [
+    'as' => 'users.profile',
+    'uses' => 'UsersController@getProfile'
+]);
 
-Route::get('singleplayer', function() {
-    return View::make('singleplayer');
-});
+// Game
+Route::get('game/lobby', [
+    'as' => 'game.lobby',
+    'uses' => 'GameController@getLobby'
+])->before('auth');
+Route::get('game/singleplayer', [
+    'as' => 'game.getSingleplayer',
+    'uses' => 'GameController@getSinglePlayerGame'
+])->before('auth');;
+Route::post('game/multiplayer', [
+    'as' => 'game.postMultiplayer',
+    'uses' => 'GameController@postMultiPlayerGame'
+])->before('auth');
+// Update Score
+Route::post('game/update', [
+    'uses' => 'GameController@postUpdate'
+]);

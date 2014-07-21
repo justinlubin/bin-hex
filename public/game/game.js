@@ -1,6 +1,35 @@
 (function(){
     "use strict";
 
+    var POST_UPDATE = "update";
+
+    // http://stackoverflow.com/questions/133925/javascript-post-request-like-a-form-submit
+    // Example:
+    //     post('/contact/', {name: 'Johnny Bravo'});
+    function post(path, params, method) {
+        method = method || "post"; // Set method to post by default if not specified.
+
+        // The rest of this code assumes you are not using a library.
+        // It can be made less wordy if you use one.
+        var form = document.createElement("form");
+        form.setAttribute("method", method);
+        form.setAttribute("action", path);
+
+        for(var key in params) {
+            if(params.hasOwnProperty(key)) {
+                var hiddenField = document.createElement("input");
+                hiddenField.setAttribute("type", "hidden");
+                hiddenField.setAttribute("name", key);
+                hiddenField.setAttribute("value", params[key]);
+
+                form.appendChild(hiddenField);
+             }
+        }
+
+        document.body.appendChild(form);
+        form.submit();
+    }
+
     var remainingPairs = 16;
 
     var firstCardElement;
@@ -11,6 +40,7 @@
     var timerInterval;
 
     var isMultiplayer;
+    var room, username;
     var myRef;
     var started = false;
 
@@ -37,8 +67,8 @@
         board = document.getElementById("board");
 
         if(isMultiplayer) {
-            var room = prompt("Room:");
-            var username = prompt("Username:");
+            room = document.getElementById('room').value.trim();
+            username = document.getElementById('username').value.trim();
 
             var opponentBoard = document.getElementById("opponent-board");
 
@@ -48,12 +78,18 @@
             sendUpdate();
             myRef.onDisconnect().remove();
 
-            roomRef.on('value', function(dataSnapshot) {
-                console.log(dataSnapshot.numChildren());
-                if(dataSnapshot.numChildren() === 1 && started) {
+            roomRef.on('child_removed', function(oldChildSnapshot) {
+                var opponentData = dataSnapshot.val()[opponent];
+                if(opponentData["remainingPairs"] === 0) {
+                    lose(opponentData["username"], opponentData["time"]);
+                } else {
                     alert("Opponent has left the game :(");
-                    location.reload();
-                } else if(dataSnapshot.numChildren() === 2) {
+                    window.location.href = "lobby";
+                }
+            });
+
+            roomRef.on('value', function(dataSnapshot) {
+                if(dataSnapshot.numChildren() === 2) {
                     // Start!
                     if(!started) {
                         started = true;
@@ -72,7 +108,7 @@
                         var opponentData = dataSnapshot.val()[opponent];
                         opponentBoard.innerHTML = opponentData["board"];
                         if(opponentData["remainingPairs"] === 0) {
-                            lose(opponentData["time"]);
+                            lose(opponentData["username"], opponentData["time"]);
                         }
                     }
                 }
@@ -200,16 +236,24 @@
 
     function win() {
         clearInterval(timerInterval);
-        alert("You win!\nTime: " + formatHundredth(time) + "s");
+        // alert("You win!\nTime: " + formatHundredth(time) + "s");
+        post(POST_UPDATE, {
+            "win": "true",
+            "time": time
+        });
     }
 
-    function lose(opponentTime) {
+    function lose(opponentUsername, opponentTime) {
         clearInterval(timerInterval);
-        alert("You lose...\nOpponent's Time: " + formatHundredth(opponentTime) + "s");
+        // alert("You lose...\n" + opponentUsername + "'s Time: " + formatHundredth(opponentTime) + "s");
+        post(POST_UPDATE, {
+            "win": "false"
+        });
     }
 
     function sendUpdate() {
         myRef.set({
+            "username": username,
             "board": board.innerHTML, 
             "remainingPairs": remainingPairs,
             "time": time
