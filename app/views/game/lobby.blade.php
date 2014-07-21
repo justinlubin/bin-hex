@@ -6,15 +6,14 @@
 
 @section('content')
     <h1>Lobby</h1>
-    <ul>
-        <li>{{ link_to_route('game.getSingleplayer', 'Single Player Game') }}</li>
-    </ul>
+    <div id="singleplayer"><h3>{{ link_to_route('game.getSingleplayer', 'Single Player Game') }}</h3></div>
 
     {{ Form::open(['route' => 'game.postMultiplayer']) }}
+        <h3>Multiplayer Game</h3>
         <div>
-            {{ Form::label('room', 'Room: ') }}
+            {{ Form::label('room', 'Room ') }}
             {{ Form::text('room') }}
         </div>
-        {{ Form::submit('Multiplayer Game') }}
+        {{ Form::submit('Join Room') }}
     {{ Form::close() }}
 @stop

@@ -8,19 +8,6 @@
     box-sizing: border-box;
 }
 
-.center {
-    text-align: center;
-}
-
-.vertical-center {
-    display: table;
-}
-
-.vertical-center > * {
-    display: table-cell;
-    vertical-align: middle;
-}
-
 html, body {
     height: 100%;
 }
@@ -30,6 +17,7 @@ body {
     color: #000000;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
+    text-align: center;
 }
 
 #mainNav {
@@ -50,32 +38,27 @@ body {
         list-style-type: none;
     }
 
-        #mainNav ul li {
-            
+        #mainNav ul li a {
+            display: block;
+            background-color: #FFFFFF;
+            color: #000000;
+            font-size: 1.1em;
+            text-decoration: none;
+            margin-bottom: 10px;
+            padding: 20px;
+            border-radius: 2px;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+            -webkit-transition: color 0.2s, border-left 0.2s;
+            -moz-transition: color 0.2s, border-left 0.2s;
+            -ms-transition: color 0.2s, border-left 0.2s;
+            -o-transition: color 0.2s, border-left 0.2s;
+            transition: color 0.2s, border-left 0.2s;
         }
 
-            #mainNav ul li a {
-                display: block;
-                background-color: #FFFFFF;
-                color: #000000;
-                font-size: 1.1em;
-                text-decoration: none;
-                margin-bottom: 10px;
-                padding: 20px;
-                border-left: 3px solid transparent;
-                border-radius: 2px;
-                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
-                -webkit-transition: color 0.2s, border-left 0.2s;
-                -moz-transition: color 0.2s, border-left 0.2s;
-                -ms-transition: color 0.2s, border-left 0.2s;
-                -o-transition: color 0.2s, border-left 0.2s;
-                transition: color 0.2s, border-left 0.2s;
+            #mainNav ul li a:hover {
+                color: #0099cc;
+                border-left: 3px solid #0099cc;
             }
-
-                #mainNav ul li a:hover {
-                    color: #0099cc;
-                    border-left: 3px solid #0099cc;
-                }
 
 #content {
     margin-left: 200px;
@@ -87,55 +70,144 @@ body {
         margin-bottom: 10px;
     }
 
+    #content h3 {
+        font-size: 1.5em;
+    }
+
     #content form {
-        width: 500px;
         display: inline-block;
-        text-align: left;
+        width: 500px;
         background-color: #FFFFFF;
+        text-align: left;
         color: #000000;
         font-size: 1.1em;
         text-decoration: none;
         margin-bottom: 10px;
         padding: 20px;
+        border-radius: 2px;
         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     }
 
-    #content form div {
-        margin-bottom: 15px;
+        #content form div {
+            margin-bottom: 15px;
+        }
+
+        #content form h3 {
+            margin-bottom: 10px;
+        }
+
+        #content form label {
+            font-size: 1.2em;
+        }
+
+        #content form input[type="text"], #content form input[type="password"] {
+            display: block;
+            width: 100%;
+        }
+
+        #content form input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px 15px;
+            background-color: transparent;
+            border: 1px solid #888;
+            cursor: pointer;
+
+            background: -webkit-linear-gradient(bottom, #EEEEEE 0%, #FFFFFF 100%);
+            background: -moz-linear-gradient(bottom, #EEEEEE 0%, #FFFFFF 100%);
+            background: -ms-linear-gradient(bottom, #EEEEEE 0%, #FFFFFF 100%);
+            background: -o-linear-gradient(bottom, #EEEEEE 0%, #FFFFFF 100%);
+            background: linear-gradient(bottom, #EEEEEE 0%, #FFFFFF 100%);
+        }
+
+            #content form input[type="submit"]:active {
+                outline: none;
+                background: -webkit-linear-gradient(top, #EEEEEE 0%, #FFFFFF 100%);
+                background: -moz-linear-gradient(top, #EEEEEE 0%, #FFFFFF 100%);
+                background: -ms-linear-gradient(top, #EEEEEE 0%, #FFFFFF 100%);
+                background: -o-linear-gradient(top, #EEEEEE 0%, #FFFFFF 100%);
+                background: linear-gradient(top, #EEEEEE 0%, #FFFFFF 100%);
+            }
+
+        #content form .error {
+            color: #CC0000;
+            font-style: italic;
+            font-size: 0.8em;
+            float: right;
+        }
+
+#all-users {
+    list-style-type: none;
+}
+
+    #all-users li {
+        display: inline-block;
     }
 
-    #content form input[type="text"], #content form input[type="password"] {
+        #all-users li a {
+            display: block;
+            width: 200px;
+            height: 200px;
+            line-height: 160px;
+            background-color: #FFFFFF;
+            color: #000000;
+            font-size: 1.3em;
+            text-decoration: none;
+            margin-bottom: 10px;
+            padding: 20px;
+            border-top: 3px solid transparent;
+            border-bottom: 3px solid transparent;
+            border-radius: 2px;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+            -webkit-transition: color 0.2s, border-bottom 0.2s;
+            -moz-transition: color 0.2s, border-bottom 0.2s;
+            -ms-transition: color 0.2s, border-bottom 0.2s;
+            -o-transition: color 0.2s, border-bottom 0.2s;
+            transition: color 0.2s, border-bottom 0.2s;
+        }
+
+            #all-users li a:hover {
+                color: #0099cc;
+                border-bottom: 3px solid #0099cc;
+            }
+
+#stats {
+    list-style-type: none;
+}
+
+   #stats li {
         display: block;
-        width: 100%;
+        width: 400px;
+        background-color: #FFFFFF;
+        color: #000000;
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 20px;
+        border-radius: 2px;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     }
 
-    #content form input[type="submit"] {
-        display: block;
-        width: 100%;
-        padding: 10px 15px;
-        background-color: transparent;
-        border: 1px solid #888;
-        cursor: pointer;
+#singleplayer a {
+    display: block;
+    width: 500px;
+    background-color: #FFFFFF;
+    color: #000000;
+    text-decoration: none;
+    margin: auto;
+    margin-bottom: 10px;
+    padding: 20px;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    -webkit-transition: color 0.2s, border-bottom 0.2s;
+    -moz-transition: color 0.2s, border-bottom 0.2s;
+    -ms-transition: color 0.2s, border-bottom 0.2s;
+    -o-transition: color 0.2s, border-bottom 0.2s;
+    transition: color 0.2s, border-bottom 0.2s;
+}
 
-        background: -webkit-linear-gradient(bottom, #EEEEEE 0%, #FFFFFF 100%);
-        background: -moz-linear-gradient(bottom, #EEEEEE 0%, #FFFFFF 100%);
-        background: -ms-linear-gradient(bottom, #EEEEEE 0%, #FFFFFF 100%);
-        background: -o-linear-gradient(bottom, #EEEEEE 0%, #FFFFFF 100%);
-        background: linear-gradient(bottom, #EEEEEE 0%, #FFFFFF 100%);
-    }
-
-    #content form input[type="submit"]:active {
-        outline: none;
-        background: -webkit-linear-gradient(top, #EEEEEE 0%, #FFFFFF 100%);
-        background: -moz-linear-gradient(top, #EEEEEE 0%, #FFFFFF 100%);
-        background: -ms-linear-gradient(top, #EEEEEE 0%, #FFFFFF 100%);
-        background: -o-linear-gradient(top, #EEEEEE 0%, #FFFFFF 100%);
-        background: linear-gradient(top, #EEEEEE 0%, #FFFFFF 100%);
-    }
-
-    #content form .error {
-        color: #CC0000;
-        font-style: italic;
-        font-size: 0.8em;
-        float:right;
+    #singleplayer a:hover {
+        color: #0099cc;
+        border-bottom: 3px solid #0099cc;
     }
