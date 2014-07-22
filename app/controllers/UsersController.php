@@ -8,7 +8,7 @@ class UsersController extends BaseController {
     }
 
     public function getAll() {
-        $users = $this->user->all();
+        $users = $this->user->orderBy('username', 'asc')->get();
         return View::make('users.all', ['users' => $users]);
     }
 
