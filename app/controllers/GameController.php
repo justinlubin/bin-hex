@@ -36,7 +36,6 @@ class GameController extends BaseController {
         }
 
         Auth::user()->save();
-        return Auth::user();
         return View::make('game.lobby');
     }
 }
