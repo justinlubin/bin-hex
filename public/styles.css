@@ -13,7 +13,7 @@ html, body {
 }
 
 body {
-    background-color: #55D7F7;
+    background-color: #00CCFF;
     color: #000000;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
@@ -57,8 +57,8 @@ body {
         }
 
             #mainNav ul li a:hover {
-                color: #0099cc;
-                border-left: 3px solid #0099cc;
+                color: #00CCFF;
+                border-left: 3px solid #00CCFF;
             }
 
 #content {
@@ -172,8 +172,8 @@ font-family: 'Lobster Two', cursive;
         }
 
             #all-users li a:hover {
-                color: #0099cc;
-                border-bottom: 3px solid #0099cc;
+                color: #00CCFF;
+                border-bottom: 3px solid #00CCFF;
             }
 
 #profile-stats {
@@ -213,8 +213,8 @@ font-family: 'Lobster Two', cursive;
 }
 
     #singleplayer a:hover {
-        color: #0099cc;
-        border-bottom: 3px solid #0099cc;
+        color: #00CCFF;
+        border-bottom: 3px solid #00CCFF;
     }
 
 #leaderboard {
