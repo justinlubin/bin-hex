@@ -19,7 +19,7 @@ class UsersController extends BaseController {
 
     public function getLogIn() {
         if(Auth::check()) {
-            return Redirect::route('users.profile', ['user' => Auth::user()->username]);
+            return Redirect::route('users.profile', ['username' => Auth::user()->username]);
         } else {
             return View::make('users.logIn');
         }
@@ -27,7 +27,7 @@ class UsersController extends BaseController {
 
     public function getSignUp() {
         if(Auth::check()) {
-            return Redirect::route('users.profile', ['user' => Auth::user()->username]);
+            return Redirect::route('users.profile', ['username' => Auth::user()->username]);
         } else {
             return View::make('users.signUp');
         }
@@ -41,7 +41,7 @@ class UsersController extends BaseController {
         }
 
         if(Auth::attempt($input)) {
-            return Redirect::route('users.profile', ['user' => Auth::user()->username]);
+            return Redirect::route('users.profile', ['username' => Auth::user()->username]);
         } else {
             return "lolnope";
         }

@@ -2,6 +2,10 @@
 
 class HomeController extends BaseController {
 	public function getStart() {
-		return View::make('start');
+        if(Auth::check()) {
+            return Redirect::route('users.profile', ['username' => Auth::user()->username]);
+        } else {
+            return View::make('start');
+        }
 	}
 }
