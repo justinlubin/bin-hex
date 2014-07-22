@@ -20,12 +20,12 @@
             -->)
         @endif
     </h1>
-    <ul id="profile-stats">
+    <ul id="profile-stats" class="card-wrapper">
         <li>Email: {{ $user->email }}</li>
-        @if($user->games != 0)
-            <li>Games Played: {{ $user->games }}</li>
-            <li>Games Won: {{ $user->won }} ({{ round($user->won/$user->games * 100, 2) }}%)</li>
-            <li>Games Lost: {{ $user->lost }} ({{ round($user->lost/$user->games * 100, 2) }}%)</li>
+        <li>Games Played: {{ $user->total_games }}</li>
+        @if($user->multiplayer_games != 0)
+            <li>Multiplayer Games Won: {{ $user->won }} ({{ round($user->won/$user->multiplayer_games * 100, 2) }}%)</li>
+            <li>Multiplayer Games Lost: {{ $user->lost }} ({{ round($user->lost/$user->multiplayer_games * 100, 2) }}%)</li>
         @endif
         @if($user->best_time != 0)
             <li>Best Time: {{ Utility::formatHundredth($user->best_time) }}s</li>

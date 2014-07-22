@@ -12,9 +12,22 @@ html, body {
     height: 100%;
 }
 
-body {
-    background-color: #55D7F7;
+.card-wrapper > *:not(.not-card):not(.card-wrapper):not(.link-card-wrapper), .link-card-wrapper a {
+    width: 500px;
+    background-color: #FFFFFF;
     color: #000000;
+    text-align: left;
+    text-decoration: none;
+    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+body {
+    background-color: #111111; /*CDB99C 221111  55D7F7     F9F2E7     1C140D  CBE86B*/
+    color: #00C6FF;
+    background-image: url('http://justinplubin.com/v3/images/bg.png');
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     text-align: center;
@@ -40,15 +53,10 @@ body {
     }
 
         #mainNav ul li a {
+            width: auto;
             display: block;
-            background-color: #FFFFFF;
-            color: #000000;
             font-size: 1.1em;
             text-decoration: none;
-            margin-bottom: 10px;
-            padding: 20px;
-            border-radius: 2px;
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
             -webkit-transition: color 0.2s, border-left 0.2s;
             -moz-transition: color 0.2s, border-left 0.2s;
             -ms-transition: color 0.2s, border-left 0.2s;
@@ -69,32 +77,32 @@ body {
         font-size: 3em;
         margin-bottom: 10px;
     padding: 20px;
+    /*color: #CBE86B;*/
 /*box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);*/
-font-family: 'Lobster Two', cursive;
+font-family: 'Roboto Slab', serif;
+font-weight: 400;
     }
 
     #content h2 {
         font-size: 1.7em;
         margin-bottom: 10px;
+        /*color: #CBE86B;*/
+font-family: 'Roboto Slab', serif;
+font-weight: 400;
+/*color: #F9F2E7;*/
+
     }
 
     #content h3 {
         font-size: 1.5em;
         margin-bottom: 10px;
+        color: #CBE86B;
+
     }
 
     #content form {
         display: inline-block;
-        width: 500px;
-        background-color: #FFFFFF;
-        text-align: left;
-        color: #000000;
         font-size: 1.1em;
-        text-decoration: none;
-        margin-bottom: 10px;
-        padding: 20px;
-        border-radius: 2px;
-        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     }
 
         #content form div {
@@ -154,16 +162,10 @@ font-family: 'Lobster Two', cursive;
             width: 200px;
             height: 200px;
             line-height: 160px;
-            background-color: #FFFFFF;
-            color: #000000;
             font-size: 1.3em;
-            text-decoration: none;
-            margin-bottom: 10px;
-            padding: 20px;
             border-top: 3px solid transparent;
             border-bottom: 3px solid transparent;
             border-radius: 2px;
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
             -webkit-transition: color 0.2s, border-bottom 0.2s;
             -moz-transition: color 0.2s, border-bottom 0.2s;
             -ms-transition: color 0.2s, border-bottom 0.2s;
@@ -239,20 +241,21 @@ font-family: 'Lobster Two', cursive;
     margin-bottom: 30px;
     border-radius: 2px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    overflow: hidden;
 }
 
     #leaderboard table tr + tr {
-        border-top: 1px solid #888888;
+        border-top: 1px solid #AAAAAA;
     }
 
         #leaderboard table tr td + td {
-            border-left: 1px solid #888888;
+            border-left: 1px solid #AAAAAA;
             padding: 20px;
         }
 
         #leaderboard table tr td:nth-child(1) {
             width: 20%;
-            background-color: #EEEEEE
+            background-color: #EEEEEE;
         }
 
         #leaderboard table tr td:nth-child(2) {

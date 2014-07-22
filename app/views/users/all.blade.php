@@ -6,7 +6,7 @@
 
 @section('content')
     <h1>Users</h1>
-    <ul id="all-users">
+    <ul id="all-users" class="link-card-wrapper">
         @foreach($users as $user)
             <li>{{ link_to_route('users.profile', $user->username, $parameters=['username' => $user->username])}}</li>
         @endforeach
