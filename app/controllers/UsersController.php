@@ -74,11 +74,11 @@ class UsersController extends BaseController {
             $count = intval($count);
         }
 
-        $top_best_time = User::where('best_time', '!=', '0')->orderBy('best_time', 'asc')->take($count)->get();
-        $top_won = User::orderBy('won', 'desc')->take($count)->get();
-        $top_total_games = User::orderBy('total_games', 'desc')->take($count)->get();
-        $top_singleplayer_games = User::orderBy('singleplayer_games', 'desc')->take($count)->get();
-        $top_multiplayer_games = User::orderBy('multiplayer_games', 'desc')->take($count)->get();
+        $top_best_time = $this->user->where('best_time', '!=', '0')->orderBy('best_time', 'asc')->take($count)->get();
+        $top_won = $this->user->orderBy('won', 'desc')->take($count)->get();
+        $top_total_games = $this->user->orderBy('total_games', 'desc')->take($count)->get();
+        $top_singleplayer_games = $this->user->orderBy('singleplayer_games', 'desc')->take($count)->get();
+        $top_multiplayer_games = $this->user->orderBy('multiplayer_games', 'desc')->take($count)->get();
         return View::make('users.leaderboard', [
             'top_best_time' => $top_best_time,
             'top_won' => $top_won,
