@@ -11,6 +11,15 @@
 |
 */
 
+// DEBUG
+Route::get('/get-environment',function() {
+    echo "Environment: ".App::environment();
+});
+Route::get('/trigger-error',function() {
+    $foo = new Foobar;
+});
+
+
 // Start
 Route::get('/', [
     'as' => 'start',
