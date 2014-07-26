@@ -190,7 +190,7 @@ body {
         padding: 20px;
         border-radius: 2px;
     }
-    
+
 #singleplayer a {
     display: block;
     width: 80%;
@@ -262,8 +262,27 @@ body {
 
                 #leaderboard table tr td:nth-child(2) {
                     width: 45%;
+                    padding: 0;
                 }
 
                 #leaderboard table tr td:nth-child(3) {
                     width: 45%;
                 }
+
+                #leaderboard tr td a {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    color: inherit;
+                    text-decoration: none;
+                    padding: 20px;
+                    -webkit-transition: background-color 0.2s;
+                    -moz-transition: background-color 0.2s;
+                    -ms-transition: background-color 0.2s;
+                    -o-transition: background-color 0.2s;
+                    transition: background-color 0.2s;
+                }
+
+                    #leaderboard tr td a:hover {
+                        background-color: rgba(255, 255, 255, 0.05);
+                    }
