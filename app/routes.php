@@ -14,7 +14,7 @@
 // Start
 Route::get('/', [
     'as' => 'start',
-    'uses' => 'HomeController@getStart'
+    'uses' => 'UsersController@getLogIn'
 ]);
 
 // Users
