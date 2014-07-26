@@ -27,5 +27,5 @@ if [ -d "$OPENSHIFT_REPO_DIR/vendor" ]; then
 else
     echo 'Hang in there, we are getting ready to Install/Update Laravel dependencies'
     # Uncomment to activate composer install for Laravel on Git Push
-    #( echo 'Installing/Updating Laravel'; unset GIT_DIR ; cd $OPENSHIFT_REPO_DIR ; php $OPENSHIFT_DATA_DIR/composer.phar -q --no-ansi install )    
+    ( echo 'Installing/Updating Laravel'; unset GIT_DIR ; cd $OPENSHIFT_REPO_DIR ; php $OPENSHIFT_DATA_DIR/composer.phar -q --no-ansi install )    
 fi
