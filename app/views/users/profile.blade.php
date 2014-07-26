@@ -21,14 +21,33 @@
         @endif
     </h1>
     <ul id="profile-stats">
-        <li>Email: {{ $user->email }}</li>
-        @if($user->games != 0)
-            <li>Games Played: {{ $user->games }}</li>
-            <li>Games Won: {{ $user->won }} ({{ round($user->won/$user->games * 100, 2) }}%)</li>
-            <li>Games Lost: {{ $user->lost }} ({{ round($user->lost/$user->games * 100, 2) }}%)</li>
-        @endif
+        <li>
+            <h2>Email</h2>
+            <div>{{ $user->email }}</div>
+        </li>
         @if($user->best_time != 0)
-            <li>Best Time: {{ Utility::formatHundredth($user->best_time) }}s</li>
+            <li>
+                <h2>Best Time</h2>
+                <div>{{ Utility::formatHundredth($user->best_time) }}s</div>
+            </li>
+        @endif
+        <li>
+            <h2>Total Games Played</h2>
+            <div>{{ $user->total_games }}</div>
+        </li>
+        @if($user->multiplayer_games != 0)
+            <li>
+                <h2>Multiplayer Games Played</h2>
+                <div>{{ $user->multiplayer_games }}</div>
+            </li>
+            <li>
+                <h2>Multiplayer Games Won</h2>
+                <div>{{ $user->won }} ({{ round($user->won/$user->multiplayer_games * 100, 2) }}%)</div>
+            </li>
+            <li>
+                <h2>Multiplayer Games Lost</h2>
+                <div>{{ $user->lost }} ({{ round($user->lost/$user->multiplayer_games * 100, 2) }}%)</div>
+            </li>
         @endif
     </ul>
 @stop
