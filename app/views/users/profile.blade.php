@@ -31,5 +31,4 @@
             <li>Best Time: {{ Utility::formatHundredth($user->best_time) }}s</li>
         @endif
     </ul>
-    <p>Back to {{ link_to_route('users.all', 'all users') }}.</p>
 @stop
