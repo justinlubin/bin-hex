@@ -196,6 +196,28 @@ body {
         border-radius: 2px;
     }
 
+    #multiplayer_chart_left {
+        display: inline-block;
+        width: 300px;
+        float: left;
+    }
+
+    #multiplayer_chart_right {
+        display: inline-table;
+        height: 300px;
+        margin-left: 20px;
+    }
+
+        #multiplayer_chart_right > div {
+            display: table-cell;
+            vertical-align: middle;   
+        }
+
+            #multiplayer_chart_right > div > div {
+                font-family: "Inconsolata", monospace;
+                white-space: pre;
+            }
+
 #singleplayer a {
     display: block;
     width: 80%;
