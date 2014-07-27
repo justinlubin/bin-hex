@@ -19,7 +19,9 @@ body {
     background-size: 100%;
     background-attachment: fixed;
     color: #FFFFFF;
-    font-family: "HelveticaNeue-Light", "Arial", sans-serif;
+    /* http://css-tricks.com/snippets/css/better-helvetica/ */
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", "Lucida Grande", sans-serif;
+    font-weight: 300;
 }
 
 #mainNav {
@@ -48,9 +50,12 @@ body {
             padding: 20px;
             background-color: rgba(255, 255, 255, 0.2);
             color: #FFFFFF;
-            /*border-right: 1px solid #FFFFFF;*/
             border-bottom: 1px solid #FFFFFF;
             -webkit-transition: background-color 0.2s;
+            -moz-transition: background-color 0.2s;
+            -ms-transition: background-color 0.2s;
+            -o-transition: background-color 0.2s;
+            transition: background-color 0.2s;
         }
 
             #mainNav ul li:nth-child(1) a {
