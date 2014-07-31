@@ -3,7 +3,7 @@
 <html lang="en-US">
     <head>
         <meta charset="UTF-8" />
-        <title>Bin:Hex Single Player Game</title>
+        <title>Bin::Hex Single Player Game</title>
         <link rel="stylesheet" href="game.css" />
         <script src="game.js"></script>
     </head>

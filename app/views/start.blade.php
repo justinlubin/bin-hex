@@ -1,7 +1,7 @@
 @extends('layout.default')
 
 @section('title')
-    Bin:Hex
+    Bin::Hex
 @stop
 
 @section('content')
