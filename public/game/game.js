@@ -81,7 +81,7 @@
             roomRef.on('child_removed', function(oldChildSnapshot) {
                 var opponentData = dataSnapshot.val()[opponent];
                 if(opponentData["remainingPairs"] === 0) {
-                    lose(opponentData["username"], opponentData["time"]);
+                    lose();
                 } else {
                     alert("Opponent has left the game :(");
                     window.location.href = "lobby";
@@ -108,7 +108,7 @@
                         var opponentData = dataSnapshot.val()[opponent];
                         opponentBoard.innerHTML = opponentData["board"];
                         if(opponentData["remainingPairs"] === 0) {
-                            lose(opponentData["username"], opponentData["time"]);
+                            lose();
                         }
                     }
                 }
@@ -237,17 +237,17 @@
     function win() {
         clearInterval(timerInterval);
         post(POST_UPDATE, {
-            "multiplayer" : isMultiplayer,
-            "win": true,
+            "isMultiplayer" : "" + isMultiplayer,
+            "win": "true",
             "time": time
         });
     }
 
-    function lose(opponentUsername, opponentTime) {
+    function lose() {
         clearInterval(timerInterval);
         post(POST_UPDATE, {
-            "multiplayer" : isMultiplayer,
-            "win": false
+            "isMultiplayer" : "" + isMultiplayer,
+            "win": "false"
         });
     }
 

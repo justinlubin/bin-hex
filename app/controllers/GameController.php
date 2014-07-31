@@ -17,10 +17,10 @@ class GameController extends BaseController {
     public function postUpdate() {
         Auth::user()->total_games += 1;
 
-        $is_multiplayer= Input::get('is_multiplayer');
+        $is_multiplayer = Input::get('isMultiplayer') == 'true';
         if($is_multiplayer) {
             Auth::user()->multiplayer_games += 1;
-            $win = Input::get('win');
+            $win = Input::get('win') == 'true';
             if($win) {
                 Auth::user()->won += 1;
             } else {
@@ -31,8 +31,10 @@ class GameController extends BaseController {
         }
 
         $time = Input::get('time');
-        if(Auth::user()->best_time == 0 || $time < Auth::user()->best_time) {
-            Auth::user()->best_time = $time;
+        if($time != 0) {
+            if(Auth::user()->best_time == 0 || $time < Auth::user()->best_time) {
+                Auth::user()->best_time = $time;
+            } 
         }
 
         Auth::user()->save();
