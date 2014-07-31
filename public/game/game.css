@@ -9,20 +9,38 @@ body {
     user-select: none;
 }
 
-#board, #opponent-board {
+.board-wrapper {
     display: inline-block;
-    padding: 20px;
-    border-radius: 10px;
+}
+
+#board, #opponent-board {
     visibility: hidden;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 #timer-wrapper {
-    font-size: 2em;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#room-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.username-wrapper {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    visibility: hidden;
+}
+
+#player-one-username, #player-two-username {
+    font-weight: bold;
 }
 
 #board .card {
     cursor: pointer;
-
 }
 
 #opponent-board {

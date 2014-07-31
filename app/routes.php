@@ -59,7 +59,7 @@ Route::get('game/lobby', [
 Route::get('game/singleplayer', [
     'as' => 'game.getSinglePlayer',
     'uses' => 'GameController@getSinglePlayerGame'
-])->before('auth');;
+])->before('auth');
 Route::post('game/multiplayer', [
     'as' => 'game.postMultiplayer',
     'uses' => 'GameController@postMultiPlayerGame'

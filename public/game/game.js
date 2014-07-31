@@ -66,9 +66,14 @@
 
         board = document.getElementById("board");
 
+        var playerOneUsernameField = document.getElementById("player-one-username");
+        var playerTwoUsernameField = document.getElementById("player-two-username");
+
         if(isMultiplayer) {
             room = document.getElementById('room').value.trim();
             username = document.getElementById('username').value.trim();
+
+            playerOneUsernameField.innerHTML = username;
 
             var opponentBoard = document.getElementById("opponent-board");
 
@@ -96,6 +101,10 @@
                         start();
                         sendUpdate();
                         opponentBoard.style.visibility = "visible";
+                        var usernameWrappers = document.getElementsByClassName("username-wrapper");
+                        for(var i = 0; i < usernameWrappers.length; i++) {
+                            usernameWrappers[i].style.visibility = "visible";
+                        }
                     }
 
                     var opponent = "";
@@ -106,6 +115,7 @@
                     });
                     if(opponent !== "") {
                         var opponentData = dataSnapshot.val()[opponent];
+                        playerTwoUsernameField.innerHTML = opponentData["username"];
                         opponentBoard.innerHTML = opponentData["board"];
                         if(opponentData["remainingPairs"] === 0) {
                             lose();
