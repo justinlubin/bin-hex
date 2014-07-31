@@ -4,6 +4,7 @@
     <head>
         <meta charset="UTF-8" />
         <title>@yield('title')</title>
+        <link rel="icon" type="image/png" href="/img/favicon.png?v=3" />
         <link rel="stylesheet" href="/styles.css" />
         @yield('extras')
     </head>
