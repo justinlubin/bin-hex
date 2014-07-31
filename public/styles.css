@@ -14,9 +14,11 @@ html, body {
 }
 
 body {
-    background-color: #207f68;
-    background-image: url('img/bg.png');
-    background-size: 100%;
+    background-color: #3f72a5;
+    /* Original Image: http://en.wikipedia.org/wiki/File:GoraBeluha.jpg */
+    /* Modified by Justin Lubin */
+    background-image: url("img/bg4_c.jpg");
+    background-size: 100% 100%;
     background-attachment: fixed;
     color: #FFFFFF;
     /* http://css-tricks.com/snippets/css/better-helvetica/ */
