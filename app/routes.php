@@ -46,7 +46,7 @@ Route::get('users/logout', [
     'as' => 'users.getLogOut',
     'uses' => 'UsersController@getLogOut'
 ]);
-Route::get('/users/leaderboard', [
+Route::get('users/leaderboard', [
     'as' => 'users.leaderboard',
     'uses' => 'UsersController@getLeaderboard'
 ]);
