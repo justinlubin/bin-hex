@@ -7,6 +7,7 @@
 @section('content')
     <h1>Log In</h1>
     {{ Form::open(['route' => 'users.postLogIn']) }}
+        {{ $errors->first('incorrect_login', '<div class="general-error">:message</div>') }}
         <div>
             {{ Form::label('username', 'Username') }}
             {{ $errors->first('username', '<span class="error">:message</span>') }}

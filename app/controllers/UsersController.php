@@ -43,7 +43,7 @@ class UsersController extends BaseController {
         if(Auth::attempt($input)) {
             return Redirect::route('users.profile', ['username' => Auth::user()->username]);
         } else {
-            return "lolnope";
+            return Redirect::back()->withErrors(['incorrect_login' => 'The username or password that you entered is incorrect.']);
         }
     }
 
