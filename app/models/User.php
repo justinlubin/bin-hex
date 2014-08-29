@@ -11,15 +11,19 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	protected $fillable = ['first_name', 'last_name', 'email', 'username', 'password'];
 
-	public $logInRules = [
+	private $logInRules = [
 		'username' => 'required',
 		'password' => 'required'
 	];
 
-	public $signUpRules = [
+	private $signUpRules = [
 		'email' => 'required|unique:users',
 		'username' => 'required|unique:users',
 		'password' => 'required'
+	];
+
+	private $signUpErrorMessages = [
+		'unique' => 'This :attribute is already taken.'
 	];
 
 	public $errors;
@@ -50,7 +54,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	}
 
 	public function isSignUpValid($data) {
-		$validation = Validator::make($data, $this->signUpRules);
+		$validation = Validator::make($data, $this->signUpRules, $this->signUpErrorMessages);
 
 		if($validation->passes()) {
 			return true;
