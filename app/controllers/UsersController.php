@@ -13,8 +13,8 @@ class UsersController extends BaseController {
     }
 
     public function getProfile($username) {
-        $user = $this->user->where(['username' => $username])->first();
-        return View::make('users.profile', ['user' => $user]);
+        $correct_user = $this->user->where(['username' => $username])->first();
+        return View::make('users.profile', ['user' => $correct_user]);
     }
 
     public function getLogIn() {
