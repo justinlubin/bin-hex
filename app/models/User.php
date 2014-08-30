@@ -26,6 +26,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		'unique' => 'This :attribute is already taken.'
 	];
 
+	private $informationChangeRules = [
+		'email' => 'unique:users',
+		'username' => 'unique:users',
+	];
+
 	public $errors;
 
 	/**
@@ -55,6 +60,17 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	public function isSignUpValid($data) {
 		$validation = Validator::make($data, $this->signUpRules, $this->signUpErrorMessages);
+
+		if($validation->passes()) {
+			return true;
+		} else {
+			$this->errors = $validation->messages();
+			return false;
+		}
+	}
+
+	public function isInformationChangeValid($data) {
+		$validation = Validator::make($data, $this->informationChangeRules, $this->signUpErrorMessages);
 
 		if($validation->passes()) {
 			return true;

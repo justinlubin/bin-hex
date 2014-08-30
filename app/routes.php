@@ -68,3 +68,13 @@ Route::post('game/multiplayer', [
 Route::post('game/update', [
     'uses' => 'GameController@postUpdate'
 ]);
+
+// Settings
+Route::get('settings', [
+    'as' => 'settings',
+    'uses' => 'SettingsController@getSettings'
+])->before('auth');
+Route::post('settings/changeAttributes', [
+    'as' => 'settings.changeAttributes',
+    'uses' => 'SettingsController@changeAttributes'
+]);

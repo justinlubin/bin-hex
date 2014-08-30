@@ -6,6 +6,7 @@
         @if(Auth::check())
             <li>{{ link_to_route('game.lobby', 'Game Lobby') }}</li>
             <li>{{ link_to_route('users.profile', 'Profile', $parameters = ['username' => Auth::user()->username])}}</li>
+            <li>{{ link_to_route('settings', 'Settings')}}
             <li>{{ link_to_route('users.getLogOut', 'Log Out') }}</li>
         @else
             <li>{{ link_to_route('users.getLogIn', 'Log In') }}</li>
