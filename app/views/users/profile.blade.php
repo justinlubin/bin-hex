@@ -67,6 +67,7 @@
                 <td>Games Played</td>
                 <td>{{ $user->total_games }}</td>
             </tr>
+            @if($user->multiplayer_games != 0)
             <tr>
                 <td>Multiplayer</td>
                 <td>
@@ -82,6 +83,7 @@
                     </div>
                 </td>
             </tr>
+            @endif
         </table>
     </div>
 
