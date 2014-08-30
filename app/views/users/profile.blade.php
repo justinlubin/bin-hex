@@ -53,37 +53,37 @@
             -->)
         @endif
     </h1>
-    <ul id="profile-stats">
-        <li>
-            <h2>Email</h2>
-            <div>{{ $user->email }}</div>
-        </li>
-        @if($user->best_time != 0)
-            <li>
-                <h2>Best Time</h2>
-                <div>{{ Utility::formatHundredth($user->best_time) }}s</div>
-            </li>
-        @endif
-        <li>
-            <h2>Total Games Played</h2>
-            <div>{{ $user->total_games }}</div>
-        </li>
-        @if($user->multiplayer_games != 0)
-            <li>                    
-                <h2>Multiplayer</h2>
-                <div id="multiplayer_chart_left">
-                    <canvas id="multiplayer_chart" width="300" height="300"></canvas>
-                </div>
-                <div id="multiplayer_chart_right">
-                    <div>
-                        <div>  Won: {{ $user->won }} ({{ round($user->won/$user->multiplayer_games * 100, 2) }}%)</div>
-                        <div> Lost: {{ $user->lost }} ({{ round($user->lost/$user->multiplayer_games * 100, 2) }}%)</div>
-                        <div>Total: {{ $user->multiplayer_games }}</div>
+    <div id="profile-info">
+        <table>
+            <tr>
+                <td>Email</td>
+                <td>{{ $user->email }}</td>
+            </tr>
+            <tr>
+                <td>Best Time</td>
+                <td>{{ Utility::formatHundredth($user->best_time) }}s</td>
+            </tr>
+            <tr>
+                <td>Games Played</td>
+                <td>{{ $user->total_games }}</td>
+            </tr>
+            <tr>
+                <td>Multiplayer</td>
+                <td>
+                    <div id="multiplayer_chart_left">
+                        <canvas id="multiplayer_chart" width="300" height="300"></canvas>
                     </div>
-                </div>
-            </li>
-        @endif
-    </ul>
+                    <div id="multiplayer_chart_right">
+                        <div>
+                            <div>  Won: {{ $user->won }} ({{ round($user->won/$user->multiplayer_games * 100, 2) }}%)</div>
+                            <div> Lost: {{ $user->lost }} ({{ round($user->lost/$user->multiplayer_games * 100, 2) }}%)</div>
+                            <div>Total: {{ $user->multiplayer_games }}</div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
 
     <input type="hidden" id="multiplayer_games" value="{{ $user->multiplayer_games }}" />
     <input type="hidden" id="won" value="{{ $user->won }}" />
